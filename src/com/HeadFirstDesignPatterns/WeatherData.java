@@ -12,10 +12,12 @@ public class WeatherData implements Subject {
         observers = new ArrayList(); //arrayList will hold the observers
     }
 
+    @Override
     public void registerObserver(Observer o) {
         observers.add(o); //when a new observer is created/ registered, it will be added to the end of the ArrayList
     }
 
+    @Override
     public void removeObserver(Observer o){
         int i = observers.indexOf(0);
         if (i >= 0) {
@@ -23,8 +25,9 @@ public class WeatherData implements Subject {
         }
     }
 
+    @Override
     public void notifyObservers(){
-        for(int = 0; i < observers.size(); i++){
+        for(int i = 0; i < observers.size(); i++){
             Observer observer = (Observer)observers.get(i);
             observer.update(temperature, humidity, pressure);
         }
